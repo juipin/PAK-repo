@@ -5,8 +5,8 @@
  *
  */
 
-#ifndef APPCOLOURDETECT_H_
-#define APPCOLOURDETECT_H_
+#ifndef __APPCOLOURDETECT_H__
+#define __APPCOLOURDETECT_H__
 
 #include "stdbool.h"
 #include "stm32l0xx_hal.h"
@@ -90,4 +90,4 @@ void SetIntegrationTimeTo154MS(void);
 void SetIntegrationTimeTo614MS(void);
 
 
-#endif /* APPCOLOURDETECT_H_ */
+#endif /* __APPCOLOURDETECT_H__ */

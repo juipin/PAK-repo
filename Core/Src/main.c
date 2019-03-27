@@ -97,6 +97,7 @@ RTC_DateTypeDef sDate;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+//void MX_I2C1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USART2_UART_Init(void);
@@ -111,6 +112,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* Private function prototypes -----------------------------------------------*/
 extern void API_USR_TransmitMessage(char *message);
 extern void SelectTopMenuOnUart(void);
+uint8_t BlueButtonDetected(uint8_t x);
 void APP_ColourDetect(void);
 //uint8_t BSP_PB_GetState(void);
 
@@ -132,6 +134,10 @@ void HAL_SYSTICK_Callback(void)
 			secondCount++;
 			secondFlag=1;									// second flag = 1;
 			mSecondCount=0;
+			if(secondCount % 5 == 0)			// need to be inside the mSecondCount so the flag is set only once
+			{
+				fiveSecondFlag=1;						// fiveSecond flag = 1;
+			}
 		}
 		
 		if(60 == secondCount)
@@ -228,6 +234,7 @@ uint8_t BSP_PB_GetState(void)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	uint32_t volatile start = 1U;
 	/* Struct containing all applications */
 UDRS_OperationTypedef	UDRS_operation[] = 
 {
@@ -243,7 +250,9 @@ UDRS_OperationTypedef	UDRS_operation[] =
 	#if defined __UDRS_APP_ERS_TANG_
 	{APP_UDRSersPM, "3: UDRS(ERS/PM)", 0},
 	#endif
-	{APP_ColourDetect, "5; COLOUR SENSOR", 0},
+	#if defined __PAK_APP_ERS_JP_
+	{APP_ColourDetect, "4; COLOUR SENSOR", 0},
+	#endif
 	
 };
 
@@ -289,7 +298,7 @@ UDRS_OperationTypedef	UDRS_operation[] =
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+  while (start)
   {
 
   /* USER CODE END WHILE */
@@ -312,6 +321,7 @@ UDRS_OperationTypedef	UDRS_operation[] =
 
   }
   /* USER CODE END 3 */
+	return 0;
 
 }
 
@@ -384,6 +394,7 @@ void SystemClock_Config(void)
 
 /* I2C1 init function */
 static void MX_I2C1_Init(void)
+//void MX_I2C1_Init(void)
 {
 
   hi2c1.Instance = I2C1;

@@ -34,8 +34,8 @@
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
-#ifndef _TCS34725_H_
-#define _TCS34725_H_
+#ifndef __ADAFRUIT_TCS34725_H__
+#define __ADAFRUIT_TCS34725_H__
 
 #include "stm32l0xx_hal.h"
 #include "stdbool.h"
@@ -149,4 +149,4 @@ extern tcs34725IntegrationTime_t _tcs34725IntegrationTime;
 }
 #endif
 */ 
-#endif
+#endif  /* __ADAFRUIT_TCS34725_H__ */

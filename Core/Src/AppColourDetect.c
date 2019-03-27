@@ -265,9 +265,9 @@ void ArrangeColourSensorArrayValues(void)
 {
 	uint16_t unknown=0;
 
-		for(int j=0;j<NUM_OF_DATA_COLOURSENSORS;j++)
+		for(uint8_t j=0;j<NUM_OF_DATA_COLOURSENSORS;j++)
 		{
-			for(int i=0;i<(NUM_OF_DATA_COLOURSENSORS-1);i++)
+			for(uint8_t i=0;i<(NUM_OF_DATA_COLOURSENSORS-1);i++)
 			{
 				if(RedColourSensorArray[i]>RedColourSensorArray[i+1])
 				{
@@ -377,12 +377,12 @@ void ColourSensorMenu(void)
 	
 	API_USR_TransmitMessage("/********************* Colour Sensor Menu *********************/\r\n");
 	API_USR_TransmitMessage("*                                                             *\r\n");
-	API_USR_TransmitMessage("* 1- Start Colour Detection Test                              *\r\n");
+	API_USR_TransmitMessage("* 1- Start Colour Detection Test (1 Second)                   *\r\n");
 	API_USR_TransmitMessage("* 2- Set Integration Time                                     *\r\n");
 	API_USR_TransmitMessage("* 3- Set Sensor Gain                                          *\r\n");
 	API_USR_TransmitMessage("* 4- Set Default Integration Time and Gain                    *\r\n");
 	API_USR_TransmitMessage("* 5- Auto Calibrate Sensor                                    *\r\n");
-	API_USR_TransmitMessage("* 6- Start Multiple Sensors Test                              *\r\n");
+	API_USR_TransmitMessage("* 6- Start Multiple Sensors Test (5 Seconds)                  *\r\n");
 	API_USR_TransmitMessage("* ----------                                                  *\r\n");
 	API_USR_TransmitMessage("* 7- Return To Top Menu                                       *\r\n");
 	API_USR_TransmitMessage("* 8- Continue the Previous Operation                          *\r\n");
@@ -452,7 +452,7 @@ void ColourSensorIntegrationTimeSelectionMenu(void)
 
 
 void EnableMultiSensors(void)
-/* Enable TCA9548A Multiplexer, return index of last port connecting to a TCS34725 sensor */
+/* Enable TCA9548A Multiplexer, store index of last port connecting to a TCS34725 sensor in lastSensorIndex, and select this sensor address in Multiplexer */
 {
 	uint8_t sensorNumber;
 	uint8_t value;
@@ -565,9 +565,11 @@ void StartMultiSensorsTest(void)
 				SelectColourSensorMenuOnUart();
 		}
 		
-		if(1 == secondFlag)
+		//if(1 == secondFlag)
+		if(1 == fiveSecondFlag)   /* Read multiple sensors every 5 seconds */
 		{
-			secondFlag = 0;
+			//secondFlag = 0;
+			fiveSecondFlag = 0;
 			for (sensorNumber=0; sensorNumber<NUM_OF_DATA_COLOURSENSORS; sensorNumber++)
 			{
 				if(sensorAvailable[sensorNumber])

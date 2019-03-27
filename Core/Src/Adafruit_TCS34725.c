@@ -16,6 +16,7 @@
     v1.0 - First release
 */
 /**************************************************************************/
+#include "main.h"
 #include "Adafruit_TCS34725.h"
 #include "stdlib.h"
 #include "math.h"
@@ -23,6 +24,7 @@
 
 extern I2C_HandleTypeDef hi2c1;
 uint8_t bufferColourSensor[10];
+//extern void MX_I2C1_Init(void);
 
 /*========================================================================*/
 /*                          PRIVATE FUNCTIONS                             */
@@ -52,6 +54,38 @@ void TCS34725_write8 (uint8_t reg, uint8_t value)
 	{
 		//char *message = (char *)("Writing an 8-bit value over I2C to TCS34725 register was not successful!\r\n");
 		API_USR_TransmitMessage("Writing an 8-bit value over I2C to TCS34725 register was not successful!\r\n");
+		//MX_I2C1_Init();
+//		{
+//			hi2c1.Instance = I2C1;
+//			hi2c1.Init.Timing = 0x00707CBB;
+//			hi2c1.Init.OwnAddress1 = 0;
+//			hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+//			hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+//			hi2c1.Init.OwnAddress2 = 0;
+//			hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+//			hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+//			hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+//			if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+//			{
+//				_Error_Handler(__FILE__, __LINE__);
+//			}
+
+//				/**Configure Analogue filter 
+//				*/
+//			if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+//			{
+//				_Error_Handler(__FILE__, __LINE__);
+//			}
+
+//				/**Configure Digital filter 
+//				*/
+//			if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+//			{
+//				_Error_Handler(__FILE__, __LINE__);
+//			}
+
+//		}
+		
 	}
 }
 

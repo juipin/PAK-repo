@@ -377,8 +377,8 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=pak_ammonia_sensor_master(v1_00)\startup_stm32l051xx.d -opak_ammo
 nia_sensor_master(v1_00)\startup_stm32l051xx.o -I.\RTE\_PAK_Ammonia_Sensor_Mast
 er_V1_00_ -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include -IC:\Keil_v5
-\ARM\PACK\Keil\STM32L0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L0xx\Include --
-predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 524" --predef
+\ARM\PACK\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include --
+predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 526" --predef
 ine="_RTE_ SETA 1" --predefine="STM32L051xx SETA 1" --list=startup_stm32l051xx.
 lst startup_stm32l051xx.s
 

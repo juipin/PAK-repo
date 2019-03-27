@@ -3,7 +3,7 @@
 <title>Static Call Graph - [PAK_Ammonia_Sensor_Master(V1_00)\PAK_Ammonia_Sensor_Master(V1_00).axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image PAK_Ammonia_Sensor_Master(V1_00)\PAK_Ammonia_Sensor_Master(V1_00).axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Mar 06 11:00:27 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Mar 27 09:46:38 2019
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -215,6 +215,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Callback
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
@@ -950,10 +951,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[99]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, main.o(i.HAL_SYSTICK_Callback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_SYSTICK_Callback
+<P><STRONG><a name="[99]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, main.o(i.HAL_SYSTICK_Callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_SYSTICK_Callback &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
 </UL>
@@ -968,7 +970,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9b]"></a>HAL_SYSTICK_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32l0xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_SYSTICK_IRQHandler &rArr; HAL_SYSTICK_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_SYSTICK_IRQHandler &rArr; HAL_SYSTICK_Callback &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Callback
 </UL>
@@ -1429,7 +1431,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> appcolourdetect.o(.data)
 </UL>
 <P><STRONG><a name="[1d]"></a>SysTick_Handler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, stm32l0xx_it.o(i.SysTick_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysTick_Handler &rArr; HAL_SYSTICK_IRQHandler &rArr; HAL_SYSTICK_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SysTick_Handler &rArr; HAL_SYSTICK_IRQHandler &rArr; HAL_SYSTICK_Callback &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
@@ -1693,8 +1695,8 @@ Global Symbols
 
 <P><STRONG><a name="[dd]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 138 bytes, Stack size 64 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = main &rArr; SelectTopMenuOnUart &rArr;  SelectTopMenuOnUart (Cycle)
+<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 154 bytes, Stack size 80 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = main &rArr; SelectTopMenuOnUart &rArr;  SelectTopMenuOnUart (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SelectTopMenuOnUart
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -1750,7 +1752,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ad]"></a>MX_RTC_Init</STRONG> (Thumb, 126 bytes, Stack size 32 bytes, main.o(i.MX_RTC_Init))
+<P><STRONG><a name="[ad]"></a>MX_RTC_Init</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, main.o(i.MX_RTC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_RTC_Init &rArr; HAL_RTC_SetTime &rArr; RTC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
@@ -1789,7 +1791,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b2]"></a>MX_USART2_UART_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, main.o(i.MX_USART2_UART_Init))
+<P><STRONG><a name="[b2]"></a>MX_USART2_UART_Init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, main.o(i.MX_USART2_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = MX_USART2_UART_Init &rArr; HAL_UART_Init &rArr; UART_SetConfig &rArr; __aeabi_uldivmod &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init

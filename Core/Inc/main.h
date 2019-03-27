@@ -51,7 +51,7 @@
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
-
+#define __PAK_APP_ERS_JP_
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define USB_USART2_TX_Pin GPIO_PIN_2

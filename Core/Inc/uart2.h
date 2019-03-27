@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef UART2_H_
-#define UART2_H_
+#ifndef __UART2_H__
+#define __UART2_H__
 
 #include "stm32l0xx_hal.h"
 
@@ -39,4 +39,4 @@ extern void SelectColourSensorMenuOnUart(void);
  extern "C" {
 #endif
 	 
-#endif /* UART2_H_ */
+#endif /* __UART2_H__ */
